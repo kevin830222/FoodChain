@@ -101,30 +101,30 @@
         <div class="container">
             <div class="col-md-6 col-md-offset-3 text-center wrap_title">
                 <h2>什麼是福全?</h2>
-                <p class="lead" style="margin-top:0">福全提供了最完整的食安追蹤系統
-                    <br>利用區塊鏈技術與政府開放資料
-                    <br>讓食安問題無所遁形
+                <p class="lead" style="margin-top:0">
+                    將區塊鏈技術與政府開放資料相互整合
+                    <br>提供使用者更透明、公開的食品流向資訊
                 </p>
             </div>
             <div class="row">
                 <div class="col-sm-4 wow fadeInDown text-center">
-                    <img class="rotate" src="img/icon/tweet.svg" alt="Generic placeholder image">
-                    <h3>Follow Me</h3>
-                    <p class="lead">Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum. </p>
+                    <img class="rotate" src="img/icon/tweet.svg" alt="Transparant">
+                    <h3>公開透明</h3>
+                    <p class="lead">將政府開放資料交互整合以供消費者檢視</p>
                     <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
                 </div>
                 <!-- /.col-lg-4 -->
                 <div class="col-sm-4 wow fadeInDown text-center">
-                    <img class="rotate" src="img/icon/picture.svg" alt="Generic placeholder image">
-                    <h3>Gallery</h3>
-                    <p class="lead">Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum. </p>
+                    <img class="rotate" src="img/secure.png" alt="Secure">
+                    <h3>嚴密監控</h3>
+                    <p class="lead">利用區塊鏈技術嚴密控管食品資訊</p>
                     <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
                 </div>
                 <!-- /.col-lg-4 -->
                 <div class="col-sm-4 wow fadeInDown text-center">
-                    <img class="rotate" src="img/icon/retina.svg" alt="Generic placeholder image">
-                    <h3>Retina</h3>
-                    <p class="lead">Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum. </p>
+                    <img class="rotate" src="img/icon/retina.svg" alt="Clear">
+                    <h3>清晰呈現</h3>
+                    <p class="lead">以視覺化方式清晰呈現食品流向</p>
                     <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
                 </div>
                 <!-- /.col-lg-4 -->
@@ -137,16 +137,15 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center white">
                     <h2>熱門查詢</h2>
-                    <p class="lead" style="margin-top:0">A special thanks to Death.</p>
                 </div>
                 <div class="col-md-6 col-md-offset-3 text-center">
                     <div class="mockup-content">
                         <div class="morph-button wow pulse morph-button-inflow morph-button-inflow-1">
-                            <button type="button "><span>Subscribe to our Newsletter</span></button>
+                            <button type="button "><span>看看大家在乎些什麼</span></button>
                             <div class="morph-content">
                                 <div>
                                     <div class="content-style-form content-style-form-4 ">
-                                        <h2 class="morph-clone">Subscribe to our Newsletter</h2>
+                                        <h2 class="morph-clone">看看大家在乎些什麼</h2>
                                         <form>
                                             <p>
                                                 <label>Your Email Address</label>
@@ -176,12 +175,29 @@
                     <h3 class="section-heading">登錄</h3>
                     <div class="sub-title lead3">登錄您所進貨的商品，確保您的商品擁有良好控管</div>
                     <p class="lead">
-                        <div class="row">
+                        <div id="register-section" style="margin-left: 10px" class="row">
                             <div class="col-lg-8">
                                 <input type="text" class="form-control" placeholder="輸入您的統一編號">
                             </div>
                             <div class="col-lg-3">
-                                <button class="btn btn-block btn-embossed btn-primary" type="button">確認</button>
+                                <button onclick="register_key()" class="btn btn-block btn-embossed btn-primary" type="button">確認</button>
+                            </div>
+                        </div>
+                        <div id="register-food" class="row" style="margin-left: 10px" hidden>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    統一編號：<span></span> 
+                                    <button onclick="register_update()" class="btn btn-embossed btn-default" type="button">更改</button>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <input autofocus type="text" class="form-control" placeholder="輸入您的食品位址">
+                                </div>
+                                <div class="col-lg-3">
+                                    <button class="btn btn-block btn-embossed btn-primary" type="button">登錄</button>
+                                </div>
                             </div>
                         </div>
                         <!-- /.row -->
@@ -219,12 +235,14 @@
                     <div class="sub-title lead3">追蹤您商品的所有交易紀錄，了解商品的來源與細節</div>
                     <p class="lead">
                         <div class="row">
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" placeholder="輸入您的追蹤位址">
-                            </div>
-                            <div class="col-lg-3">
-                                <button class="btn btn-block btn-embossed btn-primary" type="button">追蹤</button>
-                            </div>
+                            <form role="form" action="detail.html" method="get">
+                                <div class="col-lg-8">
+                                    <input id="track-addr" type="text" class="form-control" placeholder="輸入您的追蹤位址" name="addr" required>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="submit" class="btn btn-block btn-embossed btn-primary" value="追蹤">
+                                </div>
+                            </form>
                         </div>
                         <!-- /.row -->
                     </p>
