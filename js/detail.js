@@ -64,8 +64,6 @@ $(document).ready(function() {
     });
 
 
-    $('#addr').html(getQueryVariable('addr'));
-
     var stars = 2;
     var htmlString = '';
     for (var i = 0; i < stars; i++) {
@@ -79,15 +77,16 @@ $(document).ready(function() {
     var myChart = echarts.init(document.getElementById('main'));
     myChart.showLoading();
 
+    var addr = getQueryVariable('addr');
     $.ajax({
             url: '/track/',
             data: {
-                addr: '1B5hGxuLTiSyrZrT8vfcCoXNnZqPLBuLFf'
+                addr: addr
             }
         })
         .done(function(data) {
             data = JSON.parse(data);
-            
+
             myChart.hideLoading();
 
             myChart.setOption({
