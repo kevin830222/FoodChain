@@ -70,12 +70,22 @@ $(document).ready(function() {
     for (var i = 0; i < stars; i++) {
         htmlString += '<image src="img/star.png" style="width:100px;margin:10px">';
     }
-    for (var i = 0; i < 3 - stars; i++) {
+    for (var i = 0; i < 5 - stars; i++) {
         htmlString += '<image src="img/unstar.png" style="width:100px;margin:10px">';
     }
     $('#stars').html(htmlString);
 
-    
+    $('td.rank-metrics-td span').each(function(index, el) {
+        var rank = parseInt($(el).attr('data-rank'));
+        htmlString = '';
+        for (var i = 0; i < rank; i++) {
+            htmlString += '<image src="img/star.png" style="width:18px;">&nbsp&nbsp&nbsp';
+        }
+        for (var i = 0; i < 5 - rank; i++) {
+            htmlString += '<image src="img/unstar.png" style="width:18px;">';
+        }
+        $(el).html(htmlString);
+    });
 
 });
 
