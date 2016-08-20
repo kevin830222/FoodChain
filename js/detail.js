@@ -66,68 +66,217 @@ $(document).ready(function() {
     var myChart = echarts.init(document.getElementById('main'));
     myChart.showLoading();
     data = {
-        "nodes": [
-            { "name": "Total" },
-            { "name": "Environment" },
-            { "name": "Land use" },
-            { "name": "Cocoa butter (Organic)" },
-            { "name": "Cocoa mass (Organic)" },
-            { "name": "Hazelnuts (Organic)" },
-            { "name": "Cane sugar (Organic)" },
-            { "name": "Vegetables (Organic)" },
-            { "name": "Climate change" },
-            { "name": "Harmful substances" },
-            { "name": "Water use" },
-            { "name": "Resource depletion" },
-            { "name": "Refrigeration" },
-            { "name": "Packaging" },
-            { "name": "Human rights" },
-            { "name": "Child labour" },
-            { "name": "Coconut oil (Organic)" },
-            { "name": "Forced labour" },
-            { "name": "Health safety" },
-            { "name": "Access to water" },
-            { "name": "Freedom of association" },
-            { "name": "Access to land" },
-            { "name": "Sufficient wage" },
-            { "name": "Equal rights migrants" },
-            { "name": "Discrimination" },
-            { "name": "Working hours" }
-        ],
-        "links": [
-            { "source": "Total", "target": "Environment", "value": 0.342284047256003 },
-            { "source": "Environment", "target": "Land use", "value": 0.32322870366987 },
+        reportUrl: ['http://i.imgur.com/HQtAieV.jpg'],
+        nodes: [{
+            name: "250cc 茉莉蜜茶 AB 6支裝",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Land use",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Cocoa butter (Organic)",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Cocoa mass (Organic)",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Hazelnuts (Organic)",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Cane sugar (Organic)",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Vegetables (Organic)",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Climate change",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Harmful substances",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Water use",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Resource depletion",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Refrigeration",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Packaging",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Human rights",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Child labour",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Coconut oil (Organic)",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Forced labour",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Health safety",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Access to water",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Freedom of association",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Access to land",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Sufficient wage",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Equal rights migrants",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Discrimination",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }, {
+            name: "Working hours",
+            value: {
+                category: '非酒精飲料製品',
+                companyName: '光泉牧場股份有限公司',
+                imgUrl: 'http://mart.ibon.com.tw/mdz_file/item/21/20/01/1012/10120011618G_char_65_151231165507.jpg',
+            }
+        }],
+        links: [
+            { "source": "Total", "target": "250cc 茉莉蜜茶 AB 6支裝", "value": 0.342284047256003 },
+            { "source": "250cc 茉莉蜜茶 AB 6支裝", "target": "Land use", "value": 0.32322870366987 },
             { "source": "Land use", "target": "Cocoa butter (Organic)", "value": 0.177682517071359 },
             { "source": "Land use", "target": "Cocoa mass (Organic)", "value": 0.137241325342711 },
             { "source": "Land use", "target": "Hazelnuts (Organic)", "value": 0.00433076373512774 },
             { "source": "Land use", "target": "Cane sugar (Organic)", "value": 0.00296956039863467 },
             { "source": "Land use", "target": "Vegetables (Organic)", "value": 0.00100453712203756 },
-            { "source": "Environment", "target": "Climate change", "value": 0.0112886157414413 },
+            { "source": "250cc 茉莉蜜茶 AB 6支裝", "target": "Climate change", "value": 0.0112886157414413 },
             { "source": "Climate change", "target": "Cocoa butter (Organic)", "value": 0.00676852971933996 },
             { "source": "Climate change", "target": "Cocoa mass (Organic)", "value": 0.00394686874786743 },
             { "source": "Climate change", "target": "Cane sugar (Organic)", "value": 0.000315972058711838 },
             { "source": "Climate change", "target": "Hazelnuts (Organic)", "value": 0.000218969462265292 },
             { "source": "Climate change", "target": "Vegetables (Organic)", "value": 3.82757532567656e-05 },
-            { "source": "Environment", "target": "Harmful substances", "value": 0.00604275542495656 },
+            { "source": "250cc 茉莉蜜茶 AB 6支裝", "target": "Harmful substances", "value": 0.00604275542495656 },
             { "source": "Harmful substances", "target": "Cocoa mass (Organic)", "value": 0.0055125989240741 },
             { "source": "Harmful substances", "target": "Cocoa butter (Organic)", "value": 0.000330017607892127 },
             { "source": "Harmful substances", "target": "Cane sugar (Organic)", "value": 0.000200138892990337 },
             { "source": "Harmful substances", "target": "Hazelnuts (Organic)", "value": 0 },
             { "source": "Harmful substances", "target": "Vegetables (Organic)", "value": 0 },
-            { "source": "Environment", "target": "Water use", "value": 0.00148345269044703 },
+            { "source": "250cc 茉莉蜜茶 AB 6支裝", "target": "Water use", "value": 0.00148345269044703 },
             { "source": "Water use", "target": "Cocoa butter (Organic)", "value": 0.00135309891304186 },
             { "source": "Water use", "target": "Cocoa mass (Organic)", "value": 0.000105714137908639 },
             { "source": "Water use", "target": "Hazelnuts (Organic)", "value": 1.33452642581887e-05 },
             { "source": "Water use", "target": "Cane sugar (Organic)", "value": 8.78074837009238e-06 },
             { "source": "Water use", "target": "Vegetables (Organic)", "value": 2.5136268682477e-06 },
-            { "source": "Environment", "target": "Resource depletion", "value": 0.000240519729288764 },
+            { "source": "250cc 茉莉蜜茶 AB 6支裝", "target": "Resource depletion", "value": 0.000240519729288764 },
             { "source": "Resource depletion", "target": "Cane sugar (Organic)", "value": 0.000226237279345084 },
             { "source": "Resource depletion", "target": "Vegetables (Organic)", "value": 1.42824499436793e-05 },
             { "source": "Resource depletion", "target": "Hazelnuts (Organic)", "value": 0 },
             { "source": "Resource depletion", "target": "Cocoa mass (Organic)", "value": 0 },
             { "source": "Resource depletion", "target": "Cocoa butter (Organic)", "value": 0 },
-            { "source": "Environment", "target": "Refrigeration", "value": 0 },
-            { "source": "Environment", "target": "Packaging", "value": 0 },
+            { "source": "250cc 茉莉蜜茶 AB 6支裝", "target": "Refrigeration", "value": 0 },
+            { "source": "250cc 茉莉蜜茶 AB 6支裝", "target": "Packaging", "value": 0 },
             { "source": "Total", "target": "Human rights", "value": 0.307574096993239 },
             { "source": "Human rights", "target": "Child labour", "value": 0.0410641202645833 },
             { "source": "Child labour", "target": "Hazelnuts (Organic)", "value": 0.0105339381639722 },
@@ -206,25 +355,53 @@ $(document).ready(function() {
     myChart.setOption(option = {
         tooltip: {
             trigger: 'item',
-            triggerOn: 'mousemove'
+            triggerOn: 'mousemove',
+            formatter: function(params, ticket, callback) {
+                if (params.dataType == 'edge') {
+                    return '來源：' + params.data.source +
+                        '<br>產物：' + params.data.target +
+                        '<br>交易量：' + params.data.value;
+                }
+                if (params.dataType == 'node') {
+                    return '產物名稱：' + params.data.name +
+                        '<br>產品分類：' + params.data.value.category +
+                        '<br>公司名稱：' + params.data.value.companyName +
+                        '<br><img style="height:200px" src="' + params.data.value.imgUrl + '">';
+                }
+            },
         },
         series: [{
             type: 'sankey',
             layout: 'none',
             data: data.nodes,
             links: data.links,
+            right: 'auto',
+            label: {
+                normal: {
+                    position: 'left',
+                    textStyle: {
+                        color: '#494C56'
+                    }
+                }
+            },
             itemStyle: {
                 normal: {
-                    borderWidth: 1,
-                    borderColor: '#aaa'
+                    color: '#99E6CD',
+                    borderWidth: 0,
+                    // borderColor: '#aaa'
                 }
             },
             lineStyle: {
                 normal: {
+                    color: '#A3F5DB',
                     curveness: 0.5
                 }
             }
         }]
+    });
+
+    myChart.on('mouseover', function(params) {
+        console.log(params);
     });
 
     $('#addr').html(getQueryVariable('addr'));
@@ -232,13 +409,22 @@ $(document).ready(function() {
     var stars = 2;
     var htmlString = '';
     for (var i = 0; i < stars; i++) {
-        htmlString += '<image src="img/star.png">';
+        htmlString += '<image src="img/star.png" style="width:100px;margin:10px">';
     }
     for (var i = 0; i < 3 - stars; i++) {
-        htmlString += '<image src="img/unstar.png">';
+        htmlString += '<image src="img/unstar.png" style="width:100px;margin:10px">';
     }
     $('#stars').html(htmlString);
 
+    if (data.reportUrl.length == 0) {
+        $('#report').html('無檢驗報告');
+    }
+    htmlString = '';
+    for (var i in data.reportUrl) {
+        var reportUrl = data.reportUrl[i];
+        htmlString += '<image style="width:100%" src="' + reportUrl + '">';
+    }
+    $('#report').html(htmlString);
 
 });
 
