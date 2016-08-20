@@ -120,21 +120,23 @@ def getTrack(addr_to_get, nonCircleSet=set()):
                                 else:
                                     ret_dict[key] += val
 
-            # if len(transaction_item["vins"]) == 1 and len(transaction_item["vouts"]) == 2 and \
-            #                 transaction_item["vins"][0]['address'] == addr_to_get and \
-            #                 transaction_item["vouts"][0]['amount'] == "250000000":
-            #     to_addr = transaction_item["vouts"][0]['address']
-            #     if (addr_to_get, to_addr) not in ret_dict:
-            #         ret_dict[(addr_to_get, to_addr)] = 1
-            #     else:
-            #         ret_dict[(addr_to_get, to_addr)] += 1
-            #     if not to_addr in nonCircleSet:
-            #         for key, val in getTrack(to_addr, nonCircleSet).iteritems():
-            #             # print "key:", key
-            #             if key not in ret_dict:
-            #                 ret_dict[key] = val
-            #             else:
-            #                 ret_dict[key] += val
+        for transaction_item in txs_list:
+            if len(transaction_item["vins"]) == 1 and len(transaction_item["vouts"]) == 2 and \
+                            transaction_item["vins"][0]['address'] == addr_to_get and \
+                            transaction_item["vouts"][0]['amount'] == "250000000":
+                to_addr = transaction_item["vouts"][0]['address']
+                if (addr_to_get, to_addr) not in ret_dict:
+                    ret_dict[(addr_to_get, to_addr)] = 1
+                else:
+                    ret_dict[(addr_to_get, to_addr)] += 1
+                if not to_addr in nonCircleSet:
+                    for key, val in getTrack(to_addr, nonCircleSet).iteritems():
+                        # print "key:", key
+                        if key not in ret_dict:
+                            ret_dict[key] = val
+                        else:
+                            ret_dict[key] += val
+
         return ret_dict
 
     except:
@@ -159,6 +161,8 @@ def getTrackRedis(addr_to_get, nonCircleSet = set()):
                     ret_dict[key] = val
                 else:
                     ret_dict[key] += val
+    import time
+    time.sleep(1)
     return ret_dict
 
 def getBalance(addr_to_get):
@@ -238,6 +242,6 @@ if __name__ == "__main__":
     # print getBalance(addr3)
 
     # createAddress(key2)
-    tracks = getTrack("19yBocBjGdvchipivUM8YdnGadmjxHeQJh")
+    tracks = getTrackRedis("1B5hGxuLTiSyrZrT8vfcCoXNnZqPLBuLFf")
     # print tracks
-    print trackToResponse(tracks)
+    print json.dumps(trackToResponse(tracks)).decode('unicode-escape').encode('utf8')

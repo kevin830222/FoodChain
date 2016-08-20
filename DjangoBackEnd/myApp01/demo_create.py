@@ -150,20 +150,20 @@ links= [
 
 # for obj in links:
 #
-# obj = links[18]
-# source_addr = name_to_key[obj["source"]]
-# target_addr = name_to_key[obj["target"]]
-# count = 0
-# while(1):
-#     try :
-#         count += 1
-#         print "s:{}, t:{}".format(source_addr,target_addr)
-#         print transaction(source_addr=source_addr, target_addr=target_addr)
-#         break
-#     except:
-#         print "bad"
-#         if count == 5:
-#             print "fail"
-#             break
-#         time.sleep(2)
-#         continue
+for obj in links:
+    source_addr = name_to_key[obj["source"]]
+    target_addr = name_to_key[obj["target"]]
+    count = 0
+    while(1):
+        try :
+            count += 1
+            print "s:{}, t:{}".format(source_addr,target_addr)
+            print transactionRedis(source_addr=source_addr, target_addr=target_addr)
+            break
+        except:
+            print "bad"
+            if count == 5:
+                print "fail"
+                break
+            time.sleep(2)
+            continue
