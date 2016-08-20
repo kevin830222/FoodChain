@@ -23,13 +23,25 @@ def createAddress(key, name=None, info=None):
 
 
 def getPriv(addr):
-    return r.hget(addr, "priv")
+    if r.hexists(addr, "priv"):
+        return r.hget(addr, "priv")
+    else:
+        return None
 def getKey(addr):
-    return r.hget(addr, "key")
+    if r.hexists(addr, "key"):
+        return r.hget(addr, "key")
+    else:
+        return None
 def getInfo(addr):
-    return json.loads(r.hget(addr, 'info'))
+    if r.hexists(addr, "info"):
+        return json.loads(r.hget(addr, 'info'))
+    else:
+        return None
 def getName(addr):
-    return r.hget(addr, 'name')
+    if r.hexists(addr, 'name'):
+        return r.hget(addr, 'name')
+    else:
+        return None
 
 def transaction(source_addr, target_addr):
 
