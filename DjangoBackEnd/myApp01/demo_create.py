@@ -122,7 +122,7 @@ input_nodes = [{
 name_to_key = {}
 
 for obj in input_nodes:
-    addr = createAddress(key=obj['name'],name=['name'],info=['value'])
+    addr = createAddress(key=obj['name'],name=obj['name'],info=obj['value'])
     print obj['name']+' : '+ addr
     name_to_key[obj['name']] = addr
 
