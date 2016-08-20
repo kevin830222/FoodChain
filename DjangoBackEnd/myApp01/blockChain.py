@@ -162,7 +162,7 @@ def getTrackRedis(addr_to_get, nonCircleSet = set()):
                 else:
                     ret_dict[key] += val
     import time
-    time.sleep(1)
+    time.sleep(0.1)
     return ret_dict
 
 def getBalance(addr_to_get):

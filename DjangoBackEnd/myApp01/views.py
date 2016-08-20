@@ -36,7 +36,7 @@ def track(request):
 
 @csrf_exempt
 def transaction(request):
-    ret = blockChain.transaction(request.POST['source'], request.POST['target'])
+    ret = blockChain.transactionRedis(request.POST['source'], request.POST['target'])
     return HttpResponse(json.dumps(ret).decode('unicode-escape').encode('utf8'))
 
 
