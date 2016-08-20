@@ -499,3 +499,39 @@ NO MORE TABLES!! ;)
         font-weight: bold;
     }
 }
+
+img.rank {
+    width: 100%;
+    top: 50%;
+    position: relative;
+}
+
+table.rank {
+    height: 300px;
+    overflow: auto;
+}
+
+table.rank + tr {
+    cursor: pointer;
+}
+
+td.rank-td {
+    width: 256px;
+}
+
+div.rank-top-div {
+    height: 300px;
+    cursor: pointer;
+}
+
+div.rank-detail-modal {
+    height: 500px;
+}
+
+.rank-metrics-td > .list-group {
+    margin-bottom: 0px;
+}
+
+.rank-metrics-td > .list-group > li {
+    text-align: left;
+}
