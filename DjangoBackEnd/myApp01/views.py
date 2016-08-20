@@ -30,7 +30,7 @@ def home(request):
 def track(request):
     tracks = blockChain.getTrackRedis(request.GET['addr'])
     ret = blockChain.trackToResponse(tracks)
-    ret['reportUrl'] = ['http://i.imgur.com/undefined.jpg','http://i.imgur.com/Zldl1mY.jpg']
+    ret['reportUrl'] = ['http://i.imgur.com/Zldl1mY.jpg']
     response = HttpResponse(json.dumps(ret).decode('unicode-escape').encode('utf8'))
     response["Access-Control-Allow-Origin"] = "*"
     response["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"

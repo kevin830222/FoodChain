@@ -4,13 +4,13 @@ HackNTU 2016 project
 
 # Django API
 
-# Create an Assignment Address (建立一批貨的區塊鏈地址)
+## Create an Assignment Address (建立一批貨的區塊鏈地址)
 ```
 POST {DjangoHost}/addr/
     key:helloworld001
 ```
 
-# Transaction Duty of Assignment (將一批貨的食安責任推送到進貨的商品)
+## Transaction Duty of Assignment (將一批貨的食安責任推送到進貨的商品)
     POST /transaction/
 ### Example:
 Request:
@@ -27,7 +27,7 @@ null
 ```
 null response is OK. (for demo purpose)
 
-# Track Assignment (根據一批貨的Address找回源頭的所有貨的資訊)
+## Track Assignment (根據一批貨的Address找回源頭的所有貨的資訊)
     GET /track?addr=$addr
 
 ### Example:
