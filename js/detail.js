@@ -64,13 +64,13 @@ $(document).ready(function() {
     });
 
 
-    var stars = 2;
+    var stars = 5;
     var htmlString = '';
     for (var i = 0; i < stars; i++) {
-        htmlString += '<image src="img/star.png" style="width:100px;margin:10px">';
+        htmlString += '<image src="img/star.png" style="width:50px;margin:10px">';
     }
-    for (var i = 0; i < 3 - stars; i++) {
-        htmlString += '<image src="img/unstar.png" style="width:100px;margin:10px">';
+    for (var i = 0; i < 5 - stars; i++) {
+        htmlString += '<image src="img/unstar.png" style="width:50px;margin:10px">';
     }
     $('#stars').html(htmlString);
 

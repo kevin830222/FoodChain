@@ -73,26 +73,23 @@ $(document).ready(function() {
         },
         tooltip: {
             trigger: 'item',
-            formatter: "{a} <br/>{b} : {c} ({d}%)"
         },
         series: [{
-            name: '访问来源',
             type: 'pie',
             radius: '70%',
             center: ['50%', '60%'],
             data: [
-                { value: 335, name: '直接访问' },
-                { value: 310, name: '邮件营销' },
+                { value: 335, name: '正評' },
+                { value: 310, name: '負評' },
             ],
             label: {
                 normal: {
                     show: false,
-                    position: 'center'
                 },
                 emphasis: {
                     show: true,
                     textStyle: {
-                        fontSize: '30',
+                        fontSize: '24',
                         fontWeight: 'bold'
                     }
                 }
@@ -117,37 +114,19 @@ $(document).ready(function() {
             left: 'center',
         },
         tooltip: {
-            trigger: 'item',
-            formatter: "{a} <br/>{b}: {c} ({d}%)"
+            formatter: "{a} <br/>{b} : {c}%"
         },
         series: [{
-            name: '访问来源',
-            type: 'pie',
-            radius: ['40%', '70%'],
+            type: 'gauge',
             center: ['50%', '60%'],
-            avoidLabelOverlap: false,
-            label: {
-                normal: {
-                    show: false,
-                    position: 'center'
-                },
-                emphasis: {
-                    show: true,
-                    textStyle: {
-                        fontSize: '30',
-                        fontWeight: 'bold'
-                    }
-                }
+            detail: {
+                formatter: '{value}%',
+                offsetCenter: ['0%', '80%']
             },
-            labelLine: {
-                normal: {
-                    show: false
-                }
+            axisLabel: {
+                show: false,
             },
-            data: [
-                { value: 335 },
-                { value: 310 },
-            ]
+            data: [{ value: 87 }]
         }]
     });
     activeChart.setOption(option = {
@@ -179,20 +158,19 @@ $(document).ready(function() {
             type: 'value'
         }],
         series: [{
-            name: '直接访问',
             type: 'bar',
             barWidth: '60%',
             data: [10, 52, 200, 334, 390, 330, 220]
         }]
     });
 
-    var stars = 2;
+    var stars = 4;
     var htmlString = '';
     for (var i = 0; i < stars; i++) {
-        htmlString += '<image src="img/star.png" style="width:100px;margin:10px">';
+        htmlString += '<image src="img/star.png" style="width:50px;margin:10px">';
     }
-    for (var i = 0; i < 3 - stars; i++) {
-        htmlString += '<image src="img/unstar.png" style="width:100px;margin:10px">';
+    for (var i = 0; i < 5 - stars; i++) {
+        htmlString += '<image src="img/unstar.png" style="width:50px;margin:10px">';
     }
     $('#stars').html(htmlString);
 

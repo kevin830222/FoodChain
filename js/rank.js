@@ -75,14 +75,14 @@ $(document).ready(function() {
     }
     $('#stars').html(htmlString);
 
-    $('td.rank-metrics-td span').each(function(index, el) {
+    $('.rank-metrics-td span').each(function(index, el) {
         var rank = parseInt($(el).attr('data-rank'));
         htmlString = '';
         for (var i = 0; i < rank; i++) {
             htmlString += '<image src="img/star.png" style="width:18px;">&nbsp&nbsp&nbsp';
         }
         for (var i = 0; i < 5 - rank; i++) {
-            htmlString += '<image src="img/unstar.png" style="width:18px;">';
+            htmlString += '<image src="img/unstar.png" style="width:18px;">&nbsp&nbsp&nbsp';
         }
         $(el).html(htmlString);
     });
