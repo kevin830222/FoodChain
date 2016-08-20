@@ -35,9 +35,17 @@ def track(request):
 
 @csrf_exempt
 def transaction(request):
-    return HttpResponse("Under Construction")
+    ret = blockChain.transaction(request.GET['source'], request.GET['target'])
+    return HttpResponse(json.dumps(ret))
 
 
 @csrf_exempt
 def addr(request):
-    return HttpResponse("Under Construction")
+    name = None
+    info = None
+    if "name" in request.POST:
+        name = request.POST['name']
+    if "info" in request.POST:
+        info = request.POST['info']
+    ret = blockChain.createAddress(request.POST['addr'], name=name, info=info)
+    return HttpResponse(json.dumps(ret))
