@@ -35,7 +35,7 @@ def track(request):
 
 @csrf_exempt
 def transaction(request):
-    ret = blockChain.transaction(request.GET['source'], request.GET['target'])
+    ret = blockChain.transaction(request.POST['source'], request.POST['target'])
     return HttpResponse(json.dumps(ret))
 
 
