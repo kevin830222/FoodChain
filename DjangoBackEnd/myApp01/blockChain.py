@@ -101,21 +101,40 @@ def getTrack(addr_to_get, nonCircleSet=set()):
 
         ret_dict = {}
         for transaction_item in txs_list:
-            if len(transaction_item["vins"]) == 1 and len(transaction_item["vouts"]) == 2 and \
-                            transaction_item["vins"][0]['address'] == addr_to_get and \
-                            transaction_item["vouts"][0]['amount'] == "250000000":
-                to_addr = transaction_item["vouts"][0]['address']
-                if (addr_to_get, to_addr) not in ret_dict:
-                    ret_dict[(addr_to_get, to_addr)] = 1
-                else:
-                    ret_dict[(addr_to_get, to_addr)] += 1
-                if not to_addr in nonCircleSet:
-                    for key, val in getTrack(to_addr, nonCircleSet).iteritems():
-                        # print "key:", key
-                        if key not in ret_dict:
-                            ret_dict[key] = val
+            for vin_item in transaction_item['vins']:
+                vout_num = vin_item['vout']
+                for vout_item in transaction_item['vouts']:
+                    if vout_num == vout_item['n'] and \
+                            vin_item['address'] == addr_to_get and \
+                            vout_item['address'] != addr_to_get:
+                        to_addr = vout_item['address']
+                        if (addr_to_get, to_addr) not in ret_dict:
+                            ret_dict[(addr_to_get, to_addr)] = 1
                         else:
-                            ret_dict[key] += val
+                            ret_dict[(addr_to_get, to_addr)] += 1
+                        if not to_addr in nonCircleSet:
+                            for key, val in getTrack(to_addr, nonCircleSet).iteritems():
+                                # print "key:", key
+                                if key not in ret_dict:
+                                    ret_dict[key] = val
+                                else:
+                                    ret_dict[key] += val
+
+            # if len(transaction_item["vins"]) == 1 and len(transaction_item["vouts"]) == 2 and \
+            #                 transaction_item["vins"][0]['address'] == addr_to_get and \
+            #                 transaction_item["vouts"][0]['amount'] == "250000000":
+            #     to_addr = transaction_item["vouts"][0]['address']
+            #     if (addr_to_get, to_addr) not in ret_dict:
+            #         ret_dict[(addr_to_get, to_addr)] = 1
+            #     else:
+            #         ret_dict[(addr_to_get, to_addr)] += 1
+            #     if not to_addr in nonCircleSet:
+            #         for key, val in getTrack(to_addr, nonCircleSet).iteritems():
+            #             # print "key:", key
+            #             if key not in ret_dict:
+            #                 ret_dict[key] = val
+            #             else:
+            #                 ret_dict[key] += val
         return ret_dict
 
     except:
@@ -219,5 +238,6 @@ if __name__ == "__main__":
     # print getBalance(addr3)
 
     # createAddress(key2)
-    tracks = getTrack(addr2)
+    tracks = getTrack("19yBocBjGdvchipivUM8YdnGadmjxHeQJh")
+    # print tracks
     print trackToResponse(tracks)
