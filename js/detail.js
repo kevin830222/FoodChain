@@ -80,15 +80,17 @@ $(document).ready(function() {
     myChart.showLoading();
 
     $.ajax({
-            url: '/track',
+            url: '/track/',
             data: {
                 addr: '1B5hGxuLTiSyrZrT8vfcCoXNnZqPLBuLFf'
             }
         })
         .done(function(data) {
+            data = JSON.parse(data);
+            
             myChart.hideLoading();
 
-            myChart.setOption(option = {
+            myChart.setOption({
                 tooltip: {
                     trigger: 'item',
                     triggerOn: 'mousemove',
