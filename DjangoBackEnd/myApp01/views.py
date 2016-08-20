@@ -30,6 +30,7 @@ def home(request):
 def track(request):
     tracks = blockChain.getTrack(request.GET['addr'])
     ret = blockChain.trackToResponse(tracks)
+    ret['reportUrl'] = ['http://i.imgur.com/undefined.jpg','http://i.imgur.com/Zldl1mY.jpg']
     return HttpResponse(json.dumps(ret).decode('unicode-escape').encode('utf8'))
 
 
