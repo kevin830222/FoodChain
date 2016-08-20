@@ -31,7 +31,12 @@ def track(request):
     tracks = blockChain.getTrackRedis(request.GET['addr'])
     ret = blockChain.trackToResponse(tracks)
     ret['reportUrl'] = ['http://i.imgur.com/undefined.jpg','http://i.imgur.com/Zldl1mY.jpg']
-    return HttpResponse(json.dumps(ret).decode('unicode-escape').encode('utf8'))
+    response = HttpResponse(json.dumps(ret).decode('unicode-escape').encode('utf8'))
+    response["Access-Control-Allow-Origin"] = "*"
+    response["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+    response["Access-Control-Max-Age"] = "1000"
+    response["Access-Control-Allow-Headers"] = "*"
+    return response
 
 
 @csrf_exempt
