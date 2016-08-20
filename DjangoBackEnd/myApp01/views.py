@@ -30,13 +30,13 @@ def home(request):
 def track(request):
     tracks = blockChain.getTrack(request.GET['addr'])
     ret = blockChain.trackToResponse(tracks)
-    return HttpResponse(json.dumps(ret))
+    return HttpResponse(json.dumps(ret).decode('unicode-escape').encode('utf8'))
 
 
 @csrf_exempt
 def transaction(request):
     ret = blockChain.transaction(request.POST['source'], request.POST['target'])
-    return HttpResponse(json.dumps(ret))
+    return HttpResponse(json.dumps(ret).decode('unicode-escape').encode('utf8'))
 
 
 @csrf_exempt
@@ -48,4 +48,4 @@ def addr(request):
     if "info" in request.POST:
         info = request.POST['info']
     ret = blockChain.createAddress(request.POST['key'], name=name, info=info)
-    return HttpResponse(json.dumps(ret))
+    return HttpResponse(json.dumps(ret).decode('unicode-escape').encode('utf8'))
