@@ -96,8 +96,8 @@ $(document).ready(function() {
                     triggerOn: 'mousemove',
                     formatter: function(params, ticket, callback) {
                         if (params.dataType == 'edge') {
-                            return '來源：' + params.data.source +
-                                '<br>產物：' + params.data.target +
+                            return '來源：' + params.data.target +
+                                '<br>產物：' + params.data.source +
                                 '<br>交易量：' + params.data.value;
                         }
                         if (params.dataType == 'node') {

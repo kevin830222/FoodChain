@@ -83,3 +83,24 @@ var register_update = function () {
     $('#register-section').attr('hidden', false);
     $('#register-food').attr('hidden', true);
 };
+
+var register = function () {
+    $.ajax({
+        url: '/transaction/',
+        type: 'POST',
+        data: {
+            source: '1B5hGxuLTiSyrZrT8vfcCoXNnZqPLBuLFf',
+            target: '1BzCBp5fKDnHsLG91vnmHsjEwijADYVmFw',
+        },
+    })
+    .done(function() {
+        console.log("success");
+    })
+    .fail(function() {
+        console.log("error");
+    })
+    .always(function() {
+        console.log("complete");
+    });
+    
+}
