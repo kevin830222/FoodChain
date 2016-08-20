@@ -49,9 +49,6 @@ def transaction(source_addr, target_addr):
     info.getMoney(source_addr)
     info.getMoney(target_addr)
 
-    res = requests.get('http://api.2bhackathon.org:8787/base/v1/balance/%s' % addr3)
-    # print res.text
-
     res = requests.get(info.BASE_URL + '/transaction/create', {
         'from_address': source_addr,
         'to_address': target_addr,
