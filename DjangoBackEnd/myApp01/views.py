@@ -47,5 +47,5 @@ def addr(request):
         name = request.POST['name']
     if "info" in request.POST:
         info = request.POST['info']
-    ret = blockChain.createAddress(request.POST['addr'], name=name, info=info)
+    ret = blockChain.createAddress(request.POST['key'], name=name, info=info)
     return HttpResponse(json.dumps(ret))
