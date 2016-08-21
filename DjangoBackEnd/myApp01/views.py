@@ -28,7 +28,7 @@ def home(request):
 
 @csrf_exempt
 def track(request):
-    tracks = blockChain.getTrackRedis(request.GET['addr'])
+    tracks = blockChain.getTrack(request.GET['addr'])
     ret = blockChain.trackToResponse(tracks)
     ret['reportUrl'] = ['http://i.imgur.com/Zldl1mY.jpg']
     response = HttpResponse(json.dumps(ret).decode('unicode-escape').encode('utf8'))
@@ -41,7 +41,7 @@ def track(request):
 
 @csrf_exempt
 def transaction(request):
-    ret = blockChain.transactionRedis(request.POST['source'], request.POST['target'])
+    ret = blockChain.transaction(request.POST['source'], request.POST['target'])
     return HttpResponse(json.dumps(ret).decode('unicode-escape').encode('utf8'))
 
 

@@ -179,7 +179,7 @@ def trackToResponse(TrackDict):
         addr_set.add(target_addr)
         source = getName(source_addr)
         target = getName(target_addr)
-        links.append({"source":source, "target":target, "value":val})
+        links.append({"source":source, "target":target, "value":int(val)})
 
     for addr in addr_set:
         name = getName(addr)
@@ -231,7 +231,6 @@ if __name__ == "__main__":
                 'imgUrl': 'URL',
             })
     print addr4
-    #
     # print getBalance(addr3)
     # print transaction(addr3, addr4)
     # print transactionRedis(addr2, addr3)
@@ -242,6 +241,6 @@ if __name__ == "__main__":
     # print getBalance(addr3)
 
     # createAddress(key2)
-    tracks = getTrackRedis("1B5hGxuLTiSyrZrT8vfcCoXNnZqPLBuLFf")
+    tracks = getTrack("1B5hGxuLTiSyrZrT8vfcCoXNnZqPLBuLFf")
     # print tracks
     print json.dumps(trackToResponse(tracks)).decode('unicode-escape').encode('utf8')

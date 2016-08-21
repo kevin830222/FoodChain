@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myApp01',
 ]
+STATICFILES_DIRS = [
+    BASE_DIR,
+    '/home/mobagel/alan/FoodChain/',
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
